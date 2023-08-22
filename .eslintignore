@@ -1,0 +1,12 @@
+*.sh
+node_modules
+lib
+coverage
+*.md
+*.scss
+*.woff
+*.ttf
+.DS_Store
+/dist
+
+/package-lock.json

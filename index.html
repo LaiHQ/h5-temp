@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="theme-color" content="#fff" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+        <%- version %> <%- description %> <%- keywords %> <%- dnsPrefetch%> <%- icon %>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title><%- title %></title>
+    </head>
+    <body>
+        <loading-card tip="拼命加载中，请稍等..." spinning="show"></loading-card>
+        <div id="app"></div>
+        <%- injectScript %>
+        <script src="/loading.js"></script>
+        <script type="module" src="src/main.ts"></script>
+        <script>
+            window.addEventListener("error", (e) => {
+                const app = window.document.querySelector("#app")
+                if (app.children.length == 0) {
+                    console.log(`%c【ERROR】渲染错误： ${e.message}`, "color:red")
+                    console.log(`%c【ERROR】渲染错误： ${e.filename}`, "color:red")
+                }
+            })
+        </script>
+    </body>
+</html>
